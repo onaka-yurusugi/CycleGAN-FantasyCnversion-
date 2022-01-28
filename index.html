@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/gantarou.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/spectrum.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/component.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <script type=text/javascript src="{{ url_for('static', filename='js/jquery-2.1.4.min.js') }}"></script>
+  <script type=text/javascript src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src="https://cdn.rawgit.com/blueimp/JavaScript-Load-Image/v2.6.2/js/load-image.all.min.js"></script>
+	
+  <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
+	<title>
+		CycleGAN太郎(Web版)
+	</title>
+</head>
+<body data-luma="174.91" data-colors="31" data-model="0" data-tolerance="5" data-blur="0" data-hash="5dd4d628b1c50b0006fdfabd" data-edges="none" data-layersort="4" data-mins="1" class="advanced">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand1" href="/">
+            <img src="../tmp/img/taroicon.png" width="150" height="80">
+          	<span class="cycle">Cycle</span><span class="gantaro">GAN太郎</span><span class="web">(Web版)</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="modeselect">
+    <form action="/post" method="post" enctype="multipart/form-data" id="sendForm">
+        <ul>
+            <li><a href="#tab1" class="current">季節</a></li>
+            <li><a href="#tab2">風景</a></li>
+            <li><a href="#tab3">異世界</a></li>
+            <li><a href="#tab4">山</a></li>
+            <li><a href="#tab5">絵画</a></li>
+        </ul>
+        <div id="contents" class="selection-group">
+            
+            <div id="tab1">
+                <input id="spring" type="radio" name="type" value="spring"  required>
+                <label for="spring">
+                    <img src="../tmp/img/springicon.png">
+                </label>
+                <input id="summer" type="radio" name="type" value="summer">
+                <label for="summer">
+                    <img src="../tmp/img/summericon.png">
+                </label>
+                <input id="autumn" type="radio" name="type" value="autumn">
+                <label for="autumn">
+                    <img src="../tmp/img/autumnicon.png">
+                </label>
+                <input id="winter" type="radio" name="type" value="winter">
+                <label for="winter">
+                    <img src="../tmp/img/wintericon.png">
+                </label>
+            </div>
+            
+            <div id="tab2">
+                <input id="aurora" type="radio" name="type" value="aurora"  required>
+                <label for="aurora">
+                    <img src="../tmp/img/auroraicon.png">
+                </label>
+                <input id="kagoshima" type="radio" name="type" value="kagoshima">
+                <label for="kagoshima">
+                    <img src="../tmp/img/kagoshimaicon.png">
+                </label>
+                <input id="europe" type="radio" name="type" value="europe">
+                <label for="europe">
+                    <img src="../tmp/img/europeicon.png">
+                </label>
+                <input id="hanabi" type="radio" name="type" value="hanabi">
+                <label for="hanabi">
+                    <img src="../tmp/img/hanabiicon.png">
+                </label>
+            </div>
+            
+            <div id="tab3">
+                <input id="fantasy" type="radio" name="type" value="fantasy"  required>
+                <label for="fantasy">
+                    <img src="../tmp/img/fantasyicon.png">
+                </label>
+                <input id="horror" type="radio" name="type" value="horror">
+                <label for="horror">
+                    <img src="../tmp/img/horroricon.png">
+                </label>
+                <input id="mirai" type="radio" name="type" value="mirai2">
+                <label for="mirai">
+                    <img src="../tmp/img/miraiicon.png">
+                </label>
+                <input id="atlantis" type="radio" name="type" value="atlantis">
+                <label for="atlantis">
+                    <img src="../tmp/img/atlantisicon.png">
+                </label>
+            </div>
+            
+            <div id="tab4">
+                <input id="sakurajima" type="radio" name="type" value="sakurajima"  required>
+                <label for="sakurajima">
+                    <img src="../tmp/img/sakurajimaicon.png">
+                </label>
+                <input id="fujisan" type="radio" name="type" value="fujisan">
+                <label for="fujisan">
+                    <img src="../tmp/img/fujisanicon.png">
+                </label>
+                <input id="hyozan" type="radio" name="type" value="ice">
+                <label for="hyozan">
+                    <img src="../tmp/img/hyozanicon.png">
+                </label>
+            </div>
+            
+            <div id="tab5">
+                <input id="ukiyoe" type="radio" name="type" value="ukiyoe"  required>
+                <label for="ukiyoe">
+                    <img src="../tmp/img/ukiyoeicon.png">
+                </label>
+                <input id="oil" type="radio" name="type" value="oil">
+                <label for="oil">
+                    <img src="../tmp/img/oilicon.png">
+                </label>
+            </div>
+            
+        </div>
+            
+        <!-- 画像ファイル選択と変換ボタンです-->
+				<div class="box" id="set">
+
+        <input type="file" id="file-7" class="inputfile inputfile-6" style="opacity: 0"  name="uploadFile"/ required>
+        <label for="file-7"><span></span> <strong><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 画像ファイルを選択&hellip;</strong></label>                                        
+        <script type=text/javascript src="{{ url_for('static', filename='js/custom-file-input.js') }}"></script>
+        
+        <button type="submit" id="sendimg" class="btn-gradient-3d-simple">変換</button>
+                    
+        <div class="loading-page" id="loading">
+            <div class="counter">
+                <p>loading</p>
+                    <h1>0%
+                    </h1>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+    
+   	<form method="post" id="mainform"> 
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12 input advanced">
+              <h1>変換前</h1>
+              <div id="input" class="well text-center">
+                  <figure><img id="before" src=""></figure>
+                  <img id="inputimg" class="img-responsive" src="{{ url_Image1 }}" onerror="this.style.display='none'">
+              </div>
+              <br>
+          </div>				
+          <div class="col-md-6 col-sm-6 col-xs-12 output">					
+            <div>
+                <h1>変換後</h1>
+            </div>
+            <div id="output" class="well text-center">
+                <figure><img id="after" src=""></figure>
+                <img id="outputimg" class="img-responsive" src="{{ url_Image2 }}" onerror="this.style.display='none'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>  
+    <br>	
+</body>
+</html>
