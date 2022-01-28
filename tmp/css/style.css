@@ -1,0 +1,48 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100);
+
+
+.loading-page {
+  position:relative;
+  background: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left:170px;
+  top:30px;
+  margin-top: -50px;
+  display: inline-block;
+}
+.loading-page .counter {
+  text-align: center;
+}
+.loading-page .counter p {
+  font-size: 30px;
+  font-weight: 100;
+  color: #f60d54;
+  margin-top: -10px;
+}
+.loading-page .counter h1 {
+  color: #000000;
+  font-size: 40px;
+  margin-top: -10px;
+}
+.loading-page .counter hr {
+  background: #f60d54;
+  border: none;
+  height: 1px;
+  margin-top: -10px;
+}
+.loading-page .counter {
+  position: relative;
+  width: 200px;
+}
+.loading-page .counter h1.abs {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.loading-page .counter .color {
+  width: 0px;
+  overflow: hidden;
+  color: #f60d54;
+}
